@@ -2,16 +2,28 @@
 Welcome to the Data Structures and Algorithms (DSA) repository! This repository serves as a comprehensive resource for understanding and implementing fundamental data structures and algorithms in programming. Whether you're a beginner or an experienced developer, this repository will help you grasp key concepts and their practical implementations.
 
 # 📖 Table of Contents
+
 Introduction 📝
+
 Data Structures Covered 📂
+
 List 📜
+
 Linked List 🔗
+
 Tree 🌳
+
 Doubly Linked List ↔️
+
 Stacks 📦
+
 Queues 🚶‍♂️
+
 Graphs 🌐
+
 Hash Functions 🗝️
+
+
 Getting Started 🚀
 
 # 📝 Introduction
