@@ -1,0 +1,113 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 100 // Define the maximum size of the stack
+
+// Define the stack structure
+typedef struct {
+    int arr[MAX]; // Array to hold the stack elements
+    int top;      // Index to track the top of the stack
+} Stack;
+
+// Function prototypes
+void initStack(Stack *s);
+int isFull(Stack *s);
+int isEmpty(Stack *s);
+void push(Stack *s, int value);
+int pop(Stack *s);
+int peek(Stack *s);
+void display(Stack *s);
+
+int main() {
+    Stack s;
+    int option, value;
+
+    initStack(&s);
+
+    do {
+        printf("\n** STACK MENU **");
+        printf("\n1: Push an element");
+        printf("\n2: Pop an element");
+        printf("\n3: Peek at the top element");
+        printf("\n4: Display the stack");
+        printf("\n5: EXIT");
+        printf("\n\nEnter your option: ");
+        scanf("%d", &option);
+
+        switch (option) {
+            case 1:
+                if (isFull(&s)) {
+                    printf("\nStack is full.");
+                } else {
+                    printf("\nEnter the value to push: ");
+                    scanf("%d", &value);
+                    push(&s, value);
+                    printf("\nValue pushed.");
+                }
+                break;
+            case 2:
+                if (isEmpty(&s)) {
+                    printf("\nStack is empty.");
+                } else {
+                    value = pop(&s);
+                    printf("\nPopped value: %d", value);
+                }
+                break;
+            case 3:
+                if (isEmpty(&s)) {
+                    printf("\nStack is empty.");
+                } else {
+                    value = peek(&s);
+                    printf("\nTop value: %d", value);
+                }
+                break;
+            case 4:
+                display(&s);
+                break;
+        }
+    } while (option != 5);
+
+    return 0;
+}
+
+// Initialize the stack
+void initStack(Stack *s) {
+    s->top = -1; // Stack is empty
+}
+
+// Check if the stack is full
+int isFull(Stack *s) {
+    return s->top == MAX - 1;
+}
+
+// Check if the stack is empty
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+
+// Push an element onto the stack
+void push(Stack *s, int value) {
+    s->arr[++s->top] = value;
+}
+
+// Pop an element from the stack
+int pop(Stack *s) {
+    return s->arr[s->top--];
+}
+
+// Peek at the top element of the stack
+int peek(Stack *s) {
+    return s->arr[s->top];
+}
+
+// Display the stack
+void display(Stack *s) {
+    if (isEmpty(s)) {
+        printf("\nStack is empty.");
+    } else {
+        printf("\nStack elements are:");
+        for (int i = 0; i <= s->top; i++) {
+            printf("\t%d", s->arr[i]);
+        }
+    }
+}
